@@ -1,0 +1,174 @@
+/*
+myStyle.css is the global css file which is used for the petShop website.
+It defines the global variables, style, color etc which will be used by 
+all the pages of the petShop website.
+*/
+
+/*Defining the variables in root which can be used accross all styling pages
+of the petshop website
+*/
+
+:root{
+	/*color definations */
+	--primary-color: #4CAF50;   /* Soft Green color */
+  --secondary-color: green;    /* bright green as secondary color*/
+  --third-color:red;
+  --text-color: #333333;        /* dark grey color*/
+  --bg-color: #FAFAFA;        /* light grey*/
+  --section-background-color: #FFFFFF;  /*white for the different sections in web pages */
+  --error-color: #E53935;     /*red for error */
+  
+  /* fonts   */
+  --font-heading:"Poppins",sans-serif; /* primary fonts for heading */
+  --font-body:"Open sans", sans-serif; /* for body*/
+  --base-font-size:15px; /* our standard font size */
+  --font-weight1:500;
+  --font-weight2:600;
+  --font-weight3:700;
+  
+  /* spacing like margins, border,padding  */
+  --margin1:10px; /* margins for sections */
+  --margin2:20px; /* margin between the items inside the same section*/
+  --margin3:30px;
+  --padding1:10px;
+  --padding1:20px;
+  --border-radius1:5px;
+  --border-radius2:10px;
+  
+}
+
+/*styling of body*/
+body{
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	min-height:100vh;
+	margin:0px;
+	font-family:var(--font-heading);
+	background-color:var(--bg-color);
+	color:var(--text-color);
+	font-size:var(--base-font-size);
+	
+} 
+
+/* for header and nav bar */
+.header-container{
+	display:flex;
+	align-items:center;
+	justify-content: space-between; /* title left, nav right */
+    gap: 20px;
+    padding: 14px 32px;
+	background-color:var(--secondary-color);
+    color: white;
+    position: sticky;   /* stays at top when scrolling */
+
+}
+/*for h1 of the header section*/
+.header-container h1{
+	font-family: var(--font-heading);
+	font-size: 1.6rem;
+	margin: 0;
+	text-align:center;
+    color:white;
+   font-weight:var(--font-weight3);
+}
+
+
+/*for nav inside the header*/
+.header-container nav{
+	display:flex;
+	align-items:center;
+	gap:14px;
+	flex-shrink:0;
+}
+
+/*for links inside the nav */
+.header-container nav a{
+  color: white;
+  padding: 8px 10px;
+  border-radius:var(--border-radius2);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/*for links hoover */
+.header-container nav a:hover {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
+
+/* Cart icon sizing and alignment */
+.header-container nav img {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+
+/* for headings */
+h1,h2,h3{
+	font-family:var(--font-heading);
+	margin-bottom:var(--margin2);
+	color:black;
+}
+
+
+/* for links */
+a {
+	color:blue;;
+	text-decoration:none;
+}
+
+a:hover{
+	color:var(--third-color);
+}
+
+/* for buttons */
+.btn{
+	background-color:var(--secondary-color);
+	color:white;
+	padding:5px;
+	border:none;
+	border-radius:var(--border-radius1);
+	cursor:pointer;
+	font-weight:var(--font-weight3);
+	
+}
+
+.btn:hover{
+	background-color:grey;
+	transform:scale(1.05);
+}
+
+/* for footer */
+footer{
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: var(--margin2);
+  font-size: 14px;
+  /* margin-top:auto; */
+}
+
+/*for footer*/
+.footer{
+	display:flex;
+	justify-content:space-between;
+	flex-direction:column;
+	color:white;
+}
+
+.footer .other{
+	display:flex;
+	flex-direction:horizontal;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	margin-bottom:20px;
+	gap:30px;
+}
+
+
+/*style for forms*/
