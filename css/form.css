@@ -16,6 +16,7 @@ form {
 	background-color:lightgrey;
 }
 
+
 /* Header style */
 h2 {
     font-size: 30px;
@@ -52,10 +53,12 @@ input[type="checkbox"], input[type="radio"]{
 }
 
 
-/*style for text area problem, checkbox, radio and all input field*/
-input:focus,
-textarea:focus{
-	border-color:blue;
-	border-width:4px;
+
+/*styling for valid/invalid form*/
+.valid{
+	background-color:green;
 }
 
+.invalid{
+	background-color:red;
+}

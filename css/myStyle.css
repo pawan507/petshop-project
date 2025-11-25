@@ -60,7 +60,7 @@ body{
     padding: 14px 32px;
 	background-color:var(--secondary-color);
     color: white;
-    position: sticky;   /* stays at top when scrolling */
+    /* position: sticky;   /* stays at top when scrolling */ */
 
 }
 /*for h1 of the header section*/
