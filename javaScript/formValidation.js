@@ -1,24 +1,27 @@
 const form= document.querySelector("form"); //we are fetching the form using DOM
 const inputs=form.querySelectorAll("input");
 const firstName=document.getElementById("firstName");
+const userName=document.getElementById("userName");
 const lastName=document.getElementById("lastName");
 const email=document.getElementById("email");
 const password=document.getElementById("password");
 const confirmPassword=document.getElementById("confirmPassword");
-const userName=firstName; // lets assume our firstName to be userName in this case
+
 
 
 //declaring some variables
-let userNameValid= true;  //assume both username as well as password to be valid at first
+let firstNameValid= true;  //assume both firstName as well as password to be valid at first
 let passwordValid= true;
 let emailValid=true;
 let lastNameValid=true;
+let userNameValid=true;
 
 //declaration of touched flag
 let firstNameTouched=false; //initializing both as false. As soon as user lands into the field, it will be turned into true
 let passwordTouched=false;
 let lastNameTouched=false;
-let EmailTouched=false;
+let emailTouched=false;
+let userNameTouched=false;
 
 //now defining the function that validates the input
 function validatePassword(password, confirmPassword){
@@ -52,6 +55,24 @@ function validateUserName(userName){    //validating our userName
 	return true;
 }
 
+function validateFirstName(firstName){    //validating our firstName
+	firstNameValid=true;//reseting
+	if(firstName.length<5){
+		firstNameValid=false;
+		return false;
+	}
+	if(!(/[A-Z]/.test(firstName))){   //if userName has no uppercase letter then also it is unvalid
+		firstNameValid=false;
+		return false;
+	}
+	
+	if (!/[a-z]/.test(firstName)){
+		firstNameValid=false;
+		return false;
+	}
+	return true;
+}
+
 
 function validateEmail(email){
 	emailValid=true; //reset the value
@@ -75,11 +96,11 @@ function validateLastName(lastName){
 //now removing or adding styles based on the validation
 function applyChanges(){
 	if(firstNameTouched){
-		if(userNameValid ){
+		if(firstNameValid ){
 			firstName.classList.add("valid");
 			firstName.classList.remove("invalid");
 		}
-		if(!userNameValid ){
+		if(!firstNameValid ){
 			firstName.classList.remove("valid");
 			firstName.classList.add("invalid");
 		}
@@ -119,6 +140,19 @@ function applyChanges(){
 		}
 	}
 	
+	if(userNameTouched){
+		if(userNameValid ){
+			userName.classList.add("valid");
+			userName.classList.remove("invalid");
+		}
+		if(!userNameValid ){
+			userName.classList.remove("valid");
+			userName.classList.add("invalid");
+		}
+	}
+	
+	
+	
 }
 		
 
@@ -126,7 +160,7 @@ function applyChanges(){
 //now event handling 
 firstName.addEventListener("input", function(){
 	firstNameTouched=true; 
-	isUsernameValid=validateUserName(firstName.value);
+	validateFirstName(firstName.value);
 	applyChanges();
 }
 );
@@ -161,10 +195,18 @@ email.addEventListener("input", function(){
 );
 
 
+userName.addEventListener("input", function(){
+	userNameTouched=true; 
+	validateUserName(userName.value);
+	applyChanges();
+}
+);
+
 
 //before submit action checking if all the values are in correct format or not
 form.addEventListener("submit", function(event){
-	userNameValid=validateUserName(firstName.value);
+	userNameValid=validateUserName(userName.value);
+	firstNameValid=validateFirstName(firstName.value);
 	passwordValid=validatePassword(password.value, confirmPassword.value);
 	emailValid=validateEmail(email.value);
 	lastNameValid=validateLastName(lastName.value);
@@ -172,6 +214,10 @@ form.addEventListener("submit", function(event){
 	if(!userNameValid){
 		event.preventDefault();
 		alert("Username must have atleast 5 character including atleast one upper and lower case character ");
+	}
+	if(!firstNameValid){
+		event.preventDefault();
+		alert("firstname must have atleast 5 character including atleast one upper and lower case character ");
 	}
 	if(!passwordValid){
 		event.preventDefault();
