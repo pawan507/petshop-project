@@ -5,6 +5,7 @@
 			Tommy - The PetShop
 		</title>
 		<link rel="stylesheet" href="../css/myStyle.css">
+		<link rel="stylesheet" href="../css/form.css">
 		<meta charset="UTF-8">
 	</head>
 	
@@ -28,7 +29,7 @@
 				<p><strong>Breed:</strong>Husky</p>
 				<p><strong>Age:</strong>6 month</p>
 				<p><strong>Gender:</strong>Male</p>
-				<p><strong>Adoption Fee:</strong>2.5 Euro</p>
+				<p><strong>Adoption Fee:</strong>250 Euro (without Tax)</p>
 				<p><strong>Discription:</strong>Meet Tommy, a playful and energetic 6-month-old Husky!
 				He loves exploring new places, chasing balls, and making new friends—both human and furry. 
 				Tommy is smart and curious, always eager to learn new tricks, 
@@ -37,7 +38,17 @@
 				Tommy is ready to find a loving home where she can share her boundless energy and affection.
 				</p>
 				
-				<a href="checkout.html" class="btn">Add to cart</a>
+				<button type="submit" class="btn" style="margin-bottom:5px;">Add to cart</button>
+			</section>
+			
+			<section>
+				<h3> you can calculate the price including tax here</h3>
+				<form id="priceForm">
+					<label for="priceWOTax">Enter price before tax: </label>
+					<input type="number" id="priceWOTax" name="priceWOTax">
+					<button type="submit" class="btn">calculate </button>
+				</form>
+				<p id="totalPrice"></p>	
 			</section>
 		
 		</main>
@@ -80,6 +91,8 @@
 			
 		
 		</footer>
+		
+		<script src="../javaScript/allOtherFunctions.js"></script>
 		
 	</body>
 	
