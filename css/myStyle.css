@@ -107,6 +107,33 @@ body{
   object-fit: cover;
 }
 
+/*for category section*/
+.category-section{
+	padding:15px;
+	display:flex;
+	flex-direction:column;
+	border-radius: 10px;
+	margin-bottom:20px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+	width:100%;
+}
+
+.main-container .category-section h2{
+	font-size:1.6em;
+	margin-bottom:10px;
+	font-family:var(--font-heading);
+}
+
+
+/*for list of cateogry*/
+.category-section .category-list{
+	list-style: none;
+	padding: 0;
+	margin-top: 20px;
+	display: flex;
+	flex-direction:column;
+	gap: 15px;
+}
 
 /* for headings */
 h1,h2,h3{
