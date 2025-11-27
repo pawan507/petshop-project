@@ -1,0 +1,21 @@
+/***********************************************************/
+ /*                 (function documentation)                */
+ /* *********************************************************/
+ /*                                                          */
+ /* function name: addProduct                                */
+ /* parameters: 
+                productName(String)
+                productPrice(float)
+                imageSource(string)
+                totalQuantity(Integer)
+    Discription:
+                This function is basically used for adding 
+                the items to the accessories-section. 
+                in accessories-section, there are many articles
+                that are connected to the pets which user
+                can buy during pet adoption
+
+                
+ */            
+ /*                                                         */
+ /************************************************************/

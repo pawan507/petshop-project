@@ -1,3 +1,11 @@
+/**
+ * 
+ * 
+ * this first script is for assigning the Quantity label to the available product
+ * where user can choose how many article they want to add to the shopping list or collection list
+ * 
+ * 
+ */
 const items=document.getElementsByClassName("items"); //list of all available individual items
 const accessoriesSection=document.getElementById("accessories-section");  //it represent the section where we have all of the items
 
@@ -26,8 +34,15 @@ for(let i=0; i<items.length;i++){
     item.insertBefore(input,addToCollectionListButton);
 }
 
-//now adding images for every product  inside the accessories-section
-//for this we create an array which stores images link and assign these links to every items 
+
+
+/**
+ *in this section we are adding images for every product  inside the accessories-section
+for this we create an array which stores images link and assign these links to every items
+ * 
+ * 
+ */
+ 
 
 const imageArray=[
     "../product-photos/tooth-cleaner.jpeg",
@@ -50,7 +65,30 @@ for (let i=0; i<items.length; i++){
     
 }
 
-//function to add the product to the product list
+
+
+/***********************************************************/
+ /*                 (function documentation)                */
+ /* *********************************************************/
+ /*                                                          */
+ /* function name: addProduct                                */
+ /* parameters: 
+                productName(String)
+                productPrice(float)
+                imageSource(string)
+                totalQuantity(Integer)
+    Discription:
+                This function is basically used for adding 
+                the items to the accessories-section. 
+                in accessories-section, there are many articles
+                that are connected to the pets which user
+                can buy during pet adoption
+
+
+ */            
+ /*                                                         */
+ /************************************************************/
+
 function addProduct(productName, productPrice, imageSource, totalQuantity){
     //lets create the image section first and insert the image from provided source
     const img=document.createElement("img");
@@ -115,8 +153,31 @@ addProduct("kette",130.12,"../product-photos/kette.jpeg",3);
 addProduct("sunglass",130.12,"../product-photos/sample.jpeg",10);
 
 
-//writing the event listner for the add to collection list button
-//the main goal here is, when user press add to collection list, the item will be added to collection list
+
+/***********************************************************/
+ /*        collection List in product section               */
+ /* *********************************************************/
+ /*                                                          */
+ /*
+    Discription:
+                here we are creating the collection table.
+                every product are provided with 'add to 
+                collection' button..
+                when user clicks on it, then the item will
+                be displayed in a table which is located
+                just below the accessories-section.
+                this table has three table headers:
+                product name, quantity and price. Also the 
+                Table footer has two label:
+                               total price without tax 
+                                       and
+                               total price with 19% tax             
+ */            
+ /*                                                         */
+ /************************************************************/
+
+
+//writing the event listner on the whole accessoriesSection for the add to collection list button
 
 let tableExists=false;
 accessoriesSection.addEventListener("click",function(event){
@@ -176,6 +237,42 @@ function createCollectionTable(){
     table.appendChild(thead);
     table.appendChild(document.createElement("tbody")); //table has body section also, so we need to append it
 
+    //creating footer section in table which help is to summerize total price with and without tax
+    const tfoot=document.createElement("tfoot");
+
+    const totalRow1=document.createElement("tr"); //creating the row for "total without tax"
+    const tdLabel1=document.createElement("td");  //this is label which is total price without tax
+    tdLabel1.textContent="Total price before tax";
+    tdLabel1.colSpan=2; //takes two coloumn
+
+    const totalRow2=document.createElement("tr"); // total with tax
+    const tdLabel2=document.createElement("td");
+    tdLabel2.textContent="Total price after 19% tax";
+    tdLabel2.colSpan=2;
+
+    //for  total price data
+    const tdTotal1=document.createElement("td");
+    tdTotal1.id="total-price1"; //this is price without tax
+    tdTotal1.textContent="0.00";
+
+    const tdTotal2=document.createElement("td");
+    tdTotal2.id="total-price2"; //this is price with 19% tax
+    tdTotal2.textContent="0.00";
+ 
+    //now appending all these labels and data of total price to respective footer rows
+    totalRow1.appendChild(tdLabel1);
+    totalRow1.appendChild(tdTotal1);
+    totalRow2.appendChild(tdLabel2);
+    totalRow2.appendChild(tdTotal2);
+
+    //appending the rows to footer
+    tfoot.appendChild(totalRow1);
+    tfoot.appendChild(totalRow2);
+
+    //appending footer to table
+    table.appendChild(tfoot);
+
+
     //now add the table to the respective section of our main html page i.e represented by our class table-section
     section.appendChild(h2);
     section.appendChild(table);
@@ -199,7 +296,8 @@ function addRowToTable(product,quantity,price){
     tdQuantity.textContent=quantity;
 
     const tdPrice=document.createElement("td");
-    tdPrice.textContent=(price * quantity).toFixed(2); //take upto last two digits after decimal
+    const calculatedPrice=(price * quantity).toFixed(2); //take upto last two digits after decimal
+    tdPrice.textContent=calculatedPrice;
 
     //now we need to append these individual cell items into the row
     tr.appendChild(tdName);
@@ -208,4 +306,12 @@ function addRowToTable(product,quantity,price){
 
     //now appending the row into the table body
     tbody.appendChild(tr);
+
+    //updating the total price every time new item is added to the collection table
+    const totalTd1=document.getElementById("total-price1");
+    const currentTotal1=parseFloat(totalTd1.textContent);
+    totalTd1.textContent=(currentTotal1 + parseFloat(calculatedPrice)).toFixed(2);
+
+    const totalTd2=document.getElementById("total-price2"); //price including 19% tax
+    totalTd2.textContent=(parseFloat(totalTd1.textContent) * 1.19).toFixed(2);
 }

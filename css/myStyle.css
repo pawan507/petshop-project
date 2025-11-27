@@ -174,13 +174,13 @@ footer{
 #accessories-section{
 	display:flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	margin-bottom: 20px;
 }
 
 /*style for items*/
 .items {
-	width: 30%;
+	width: 20%;
     background: white;
     padding: 15px;
     border-radius: var(--border-radius2);
@@ -189,6 +189,55 @@ footer{
 	flex-direction: column;
 }
 
+/* styling the collection section which basically has table where user selected item is displayed*/
+.collection-section {
+	display:flex;
+	flex-direction: column;
+    margin-top: 40px;
+    padding: 20px;
+    
+}
+
+.collection-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.collection-section #collection-table {
+	width:60%;
+	margin: 0px auto;
+}   
+
+/*style for image of the items*/
 .item-img{
 	width: 100%;
 }
+
+
+
+/* Style for my table*/
+
+
+/* style for the div that has table*/
+.table-section {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	margin:2px;
+    border:2px solid black;
+	padding:2px;
+	background-color:yellow;
+	margin-bottom:50px;
+	width:500px;
+	
+}
+
+th, td {
+	background-color:lightgray;
+    padding: 8px;
+    border: 1px solid;
+	
+}
+
+
+
