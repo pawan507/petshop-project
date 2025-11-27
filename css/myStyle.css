@@ -96,7 +96,7 @@ body.dark-mode {
 .header-container h1 {
     font-size: 1.6rem;
     margin: 0;
-    color: var(--header-text);  /* Change from 'white' */
+    color: var(--header-text);  /* Changed from 'white' */
     font-weight: var(--font-weight3);
 }
 
@@ -322,8 +322,8 @@ footer a:hover {
 
 /*Media queries*/
 
-/* Mobile (max-width: 480px) */
-@media (max-width: 480px) {
+/* Mobile or any small devices (max-width: 800px) */
+@media (max-width: 800px) {
     /* Base font size */
     :root {
         --base-font-size: 14px;
@@ -343,7 +343,7 @@ footer a:hover {
         gap: 8px;
     }
     
-    .nav-link {
+    .header-container nav a {
         width: 100%;
         justify-content: center;
         padding: 10px;
@@ -384,7 +384,6 @@ footer a:hover {
     
     .items {
         width: 100%;
-        min-width: unset;
     }
     
     /* About & Partners */
