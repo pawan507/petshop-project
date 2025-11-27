@@ -1,228 +1,269 @@
-/*
-myStyle.css is the global css file which is used for the petShop website.
-It defines the global variables, style, color etc which will be used by 
-all the pages of the petShop website.
+/*  
+=========================================
+ myStyle.css — GLOBAL + HOMEPAGE + PRODUCT PAGE
+ Cleaned & Optimized
+=========================================
 */
 
-/*Defining the variables in root which can be used accross all styling pages
-of the petshop website
-*/
+/* ===========================
+   ROOT VARIABLES
+=========================== */
+:root {
+    /* colors (light mode) */
+    --primary-color: #4CAF50;
+    --secondary-color: green;
+    --third-color: red;
 
-:root{
-	/*color definations */
-	--primary-color: #4CAF50;   /* Soft Green color */
-  --secondary-color: green;    /* bright green as secondary color*/
-  --third-color:red;
-  --text-color: #333333;        /* dark grey color*/
-  --bg-color: #FAFAFA;        /* light grey*/
-  --section-background-color: #FFFFFF;  /*white for the different sections in web pages */
-  --error-color: #E53935;     /*red for error */
-  
-  /* fonts   */
-  --font-heading:"Poppins",sans-serif; /* primary fonts for heading */
-  --font-body:"Open sans", sans-serif; /* for body*/
-  --base-font-size:15px; /* our standard font size */
-  --font-weight1:500;
-  --font-weight2:600;
-  --font-weight3:700;
-  
-  /* spacing like margins, border,padding  */
-  --margin1:10px; /* margins for sections */
-  --margin2:20px; /* margin between the items inside the same section*/
-  --margin3:30px;
-  --padding1:10px;
-  --padding1:20px;
-  --border-radius1:5px;
-  --border-radius2:10px;
-  
+    --text-color: #333333;
+    --bg-color: #FAFAFA;
+    --section-background-color: #FFFFFF;
+
+	--header-bg: green;
+    --footer-bg: #4CAF50;
+    --header-text: white;
+
+    /* fonts */
+    --font-heading: "Poppins", sans-serif;
+    --font-body: "Open Sans", sans-serif;
+    --base-font-size: 15px;
+    --font-weight1: 500;
+    --font-weight2: 600;
+    --font-weight3: 700;
+
+    /* spacing */
+    --margin1: 10px;
+    --margin2: 20px;
+    --margin3: 30px;
+
+    --padding1: 10px;
+    --padding2: 20px;
+
+    --border-radius1: 5px;
+    --border-radius2: 10px;
 }
 
-/*styling of body*/
-body{
-	display:flex;
-	flex-direction:column;
-	flex-wrap:wrap;
-	min-height:100vh;
-	margin:0px;
-	font-family:var(--font-heading);
-	background-color:var(--bg-color);
-	color:var(--text-color);
-	font-size:var(--base-font-size);
-	
-} 
+/* ===========================
+   GLOBAL BODY STYLES
+=========================== */
+body {
+    margin: 0;
+    min-height: 100vh;
 
-/* for header and nav bar */
-.header-container{
-	display:flex;
-	align-items:center;
-	justify-content: space-between; /* title left, nav right */
-    gap: 20px;
-    padding: 14px 32px;
-	background-color:var(--secondary-color);
-    color: white;
-    position: sticky;   /* stays at top when scrolling */ 
+    display: flex;
+    flex-direction: column;
 
+    font-family: var(--font-heading);
+    font-size: var(--base-font-size);
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
-/*for h1 of the header section*/
-.header-container h1{
-	font-family: var(--font-heading);
-	font-size: 1.6rem;
-	margin: 0;
-	text-align:center;
-    color:white;
-   font-weight:var(--font-weight3);
-}
+/* ===========================
+   DARK MODE (variable override)
+=========================== */
+body.dark-mode {
+    --primary-color: #1db954;
+    --secondary-color: #15803d;
+    --third-color: #ff4444;
 
+    --text-color: #f1f1f1;
+    --bg-color: #121212;
+    --section-background-color: #1e1e1e;
 
-/*for nav inside the header*/
-.header-container nav{
-	display:flex;
-	align-items:center;
-	gap:14px;
-	flex-shrink:0;
-}
-
-/*for links inside the nav */
-.header-container nav a{
-  color: white;
-  padding: 8px 10px;
-  border-radius:var(--border-radius2);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/*for links hoover */
-.header-container nav a:hover {
-  background: rgba(255,255,255,0.12);
-  color: white;
-}
-
-/* Cart icon sizing and alignment */
-.header-container nav img {
-  display: inline-block;
-  vertical-align: middle;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-/*for category section*/
-.category-section{
-	padding:15px;
-	display:flex;
-	flex-direction:column;
-	border-radius: 10px;
-	margin-bottom:20px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-	width:100%;
-}
-
-.main-container .category-section h2{
-	font-size:1.6em;
-	margin-bottom:10px;
-	font-family:var(--font-heading);
+	--header-bg: #1e1e1e;      /* Dark gray */
+	--footer-bg: #1e1e1e;      /* Dark gray */
+	--header-text: #f1f1f1;    /* Light text */
 }
 
 
-/*for list of cateogry*/
-.category-section .category-list{
-	list-style: none;
-	padding: 0;
-	margin-top: 20px;
-	display: flex;
-	flex-direction:column;
-	gap: 15px;
-}
-
-/* for headings */
-h1,h2,h3{
-	font-family:var(--font-heading);
-	margin-bottom:var(--margin2);
-	color:black;
-}
-
-
-/* for links */
-a {
-	color:blue;;
-	text-decoration:none;
-}
-
-a:hover{
-	color:var(--third-color);
-}
-
-/* for buttons */
-.btn{
-	background-color:var(--secondary-color);
-	color:white;
-	padding:5px;
-	border:none;
-	border-radius:var(--border-radius1);
-	cursor:pointer;
-	font-weight:var(--font-weight3);
-	
-}
-
-.btn:hover{
-	background-color:grey;
-	transform:scale(1.05);
-}
-
-/* for footer */
-footer{
-  background-color: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: var(--margin2);
-  font-size: 14px;
-  /* margin-top:auto; */
-}
-
-/*for footer*/
-.footer{
-	display:flex;
-	justify-content:space-between;
-	flex-direction:column;
-	color:white;
-}
-
-.footer .other{
-	display:flex;
-	flex-direction:horizontal;
-	flex-wrap:wrap;
-	justify-content:space-between;
-	margin-bottom:20px;
-	gap:30px;
-}
-
-/*style for accessories section*/
-#accessories-section{
-	display:flex;
+/* ===========================
+   HEADER & NAVIGATION
+=========================== */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
-	margin-bottom: 20px;
+
+    padding: 14px 32px;
+    background-color: var(--header-bg);
+    color:var(--header-text);
+    gap: 20px;
+
+    position: sticky;
+    top: 0;
 }
 
-/*style for items*/
-.items {
-	width: 20%;
-    background: white;
+.header-container h1 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--header-text);  /* Change from 'white' */
+    font-weight: var(--font-weight3);
+}
+
+.header-container nav {
+    display: flex;
+    align-items: center;
+	flex-wrap: wrap;
+    gap: 14px;
+}
+
+.header-container nav a {
+    color: var(--header-text);  
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: var(--border-radius2);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+	text-decoration: none; /*to remove default underline provided by system*/
+}
+
+
+.header-container nav a:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.header-container nav img {
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* ===========================
+   LANDING PAGE
+=========================== */
+.landingPage {
+    background-image: url("../animals/pagebackground.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+
+    color: white;
+    padding: 100px 20px;
+}
+
+.landingPage-content {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+/* ===========================
+   CATEGORY SECTION
+=========================== */
+.category-section {
     padding: 15px;
+    background: var(--section-background-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    width: 100%;
+}
+
+.category-section h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.category-section .category-list {
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.category-section .category-list a {
+    text-decoration: none;
+    color: var(--text-color);  /* Change from 'black' to variable way */
+
+    padding: 10px;
+    border-radius: 10%;
+    font-weight: var(--font-weight2);
+}
+
+.category-section .category-list a:hover {
+    background-color: blue;
+    color: white;
+}
+
+/* ===========================
+   ABOUT + PARTNERS SECTION
+=========================== */
+#about, #partners {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+#partners .partners .partnersLogo {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+.btn {
+    background-color: var(--secondary-color);
+    font-size: 1.1em;
+    font-weight: var(--font-weight3);
+    color: white;
+
+    padding: 5px;
+    border: none;
+    border-radius: var(--border-radius1);
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: grey;
+    transform: scale(1.05);
+}
+
+/* ===========================
+   ACCESSORIES PAGE PRODUCTS
+=========================== */
+#accessories-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.items {
+    width: 20%;
+    background: var(--section-background-color);
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
     border-radius: var(--border-radius2);
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-	display:flex;
-	flex-direction: column;
 }
 
-/* styling the collection section which basically has table where user selected item is displayed*/
+.item-img {
+    width: 100%;
+}
+
+/* ===========================
+   COLLECTION TABLE
+=========================== */
 .collection-section {
-	display:flex;
-	flex-direction: column;
     margin-top: 40px;
     padding: 20px;
-    
+
+    display: flex;
+    flex-direction: column;
 }
 
 .collection-section h2 {
@@ -230,41 +271,162 @@ footer{
     margin-bottom: 20px;
 }
 
-.collection-section #collection-table {
-	width:60%;
-	margin: 0px auto;
-}   
-
-/*style for image of the items*/
-.item-img{
-	width: 100%;
-}
-
-
-
-/* Style for my table*/
-
-
-/* style for the div that has table*/
-.table-section {
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	margin:2px;
-    border:2px solid black;
-	padding:2px;
-	background-color:yellow;
-	margin-bottom:50px;
-	width:500px;
-	
+#collection-table {
+    width: 60%;
+    margin: auto;
+    border-collapse: collapse;
 }
 
 th, td {
-	background-color:lightgray;
     padding: 8px;
     border: 1px solid;
-	
+    background: var(--bg-color);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background-color: var(--footer-bg);
+    color:var(--header-text);
+
+    text-align: center;
+    padding: var(--margin2);
+    font-size: 14px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .other {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+    gap: 30px;
+}
+
+footer a {
+    color: var(--header-text);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 
 
+/*Media queries*/
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Base font size */
+    :root {
+        --base-font-size: 14px;
+    }
+    
+    /* Header */
+    .header-container {
+        padding: 10px 15px;
+    }
+    
+    .header-container h1 {
+        font-size: 1.2rem;
+    }
+    
+    .header-container nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    /* Landing page */
+    .landingPage {
+        padding: 40px 10px;
+    }
+    
+    .landingPage-content {
+        padding: 15px 20px;
+    }
+    
+    .landingPage-content h1 {
+        font-size: 1.3rem;
+    }
+    
+    .landingPage-content p {
+        font-size: 0.95rem;
+    }
+    
+    /* Category section */
+    .category-section {
+        margin: 10px;
+        padding: 12px;
+    }
+    
+    .category-section h2 {
+        font-size: 1.3em;
+    }
+    
+    /* Products - single column */
+    #accessories-section {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .items {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    /* About & Partners */
+    #about, #partners {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    #partners .partners .partnersLogo {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    /* Table - scroll horizontally */
+    .collection-section {
+        padding: 10px;
+        overflow-x: auto;
+    }
+    
+    #collection-table {
+        width: 100%;
+        font-size: 12px;
+        min-width: 400px;
+    }
+    
+    th, td {
+        padding: 6px;
+    }
+    
+    /* Buttons */
+    .btn {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+    
+    /* Footer */
+    footer {
+        font-size: 12px;
+        padding: 15px 10px;
+    }
+    
+    .footer .other section h3 {
+        font-size: 1.1em;
+    }
+}

@@ -1,3 +1,4 @@
+
 //defining the function that calculates the total price with taxes
 function getTotalPrice(priceWOTax){
 	const taxRate=0.19; // tax is 19 percentage
@@ -18,3 +19,5 @@ form.addEventListener("submit", function(event) {
     const priceWithTax=getTotalPrice(price);
 	totalPrice.textContent="The total price is : " +priceWithTax.toFixed(2);
 });
+
+
