@@ -148,6 +148,10 @@ body.dark-mode {
     border-radius: 10px;
 }
 
+main {
+    padding-bottom: 30px;  /* ensures some space before footer. we can observe it in registration form page */
+}
+
 /* ===========================
    CATEGORY SECTION
 =========================== */
@@ -220,8 +224,10 @@ body.dark-mode {
     padding: 5px;
     border: none;
     border-radius: var(--border-radius1);
+	
 
     cursor: pointer;
+	text-decoration: none;
 }
 
 .btn:hover {
