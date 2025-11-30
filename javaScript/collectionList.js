@@ -144,7 +144,30 @@ function addProduct(productName, productPrice, imageSource, totalQuantity){
     document.getElementById("accessories-section").appendChild(itemDiv);
 }
 
+//for adding product
+//first we gather all info from user input then acordingly we add product
+const addProductButton = document.getElementById("addProduct");
 
+
+if(addProductButton){
+	addProductButton.addEventListener("click", (event) => {
+        event.preventDefault(); // stop form from submitting
+        const productName=document.querySelector("input[name='product-name']");
+        const productPrice=document.querySelector("input[name='price']");
+        const productQuantity=document.querySelector("input[name='available-quantity']");
+        const file=document.querySelector("input[name='image-source']");
+
+        let name=productName.value;
+        let price=parseFloat(parseFloat(productPrice.value).toFixed(2));
+        let quantity=(parseInt(productQuantity.value));
+        let imgSrc=URL.createObjectURL(file.files[0]);
+    
+        //now adding product using function addProduct
+        addProduct(name,price,imgSrc,quantity);
+
+	});
+
+}
 //Test case for the function//
 addProduct("sunglass",120.12,"../product-photos/sample.jpeg",20);
 addProduct("sunglass",120.12,"../product-photos/sample2.jpeg",20);
